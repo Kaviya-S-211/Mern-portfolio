@@ -4,6 +4,7 @@ import girlyyglam from '../assets/Girlyyglam.png';
 import meeshodating from '../assets/meeshodating.png';
 import musiccyy from '../assets/musiccyy.png';
 import simpletodo from '../assets/Simpletodo.png';
+import portfolio from '../assets/portfolio.png'; // Assuming you have a portfolio image
 
 const projects = [
   {
@@ -33,8 +34,8 @@ const projects = [
   {
     name: 'Portfolio Website',
     description: 'My personal portfolio website built with MERN.',
-    image: '', // You’ll add the image later
-    link: '',
+    image: portfolio, 
+    link: 'https://mern-portfolio-self.vercel.app/',
   },
 ];
 

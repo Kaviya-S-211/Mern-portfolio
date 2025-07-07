@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import { Typewriter } from 'react-simple-typewriter';
 
+
 const Home = () => {
   return (
     <section className="home" id="home">
@@ -31,9 +32,10 @@ const Home = () => {
         </p>
 
         <div className="home-buttons">
-          <button className="resume-btn" disabled title="Coming Soon">
-            Download Resume
-          </button>
+         <a href="/S_Kaviya_Resume-mern.pdf" download className="resume-btn">
+                 Download Resume 📥
+                 </a>
+
         </div>
       </div>
     </section>
