@@ -5,31 +5,35 @@ import nodemailer from 'nodemailer';
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+// ✅ Allow only your frontend domain
+app.use(cors({
+  origin: 'https://mern-portfolio-self.vercel.app',
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type'],
+}));
+
 app.use(express.json());
 
 app.post('/api/contact', async (req, res) => {
   const { username, email, message } = req.body;
 
   try {
-    // Set up transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // or 'hotmail', 'yahoo'
+      service: 'gmail',
       auth: {
-        user: 'kaviya21103@gmail.com',       // 🔒 Your email
-        pass: 'mmxzismzuwubglpn',     // 🔑 App password (not normal password)
+        user: 'kaviya21103@gmail.com',
+        pass: 'mmxzismzuwubglpn', // App password
       },
     });
 
     const mailOptions = {
       from: email,
-      to: 'kaviya21103@gmail.com', // your inbox to receive message
+      to: 'kaviya21103@gmail.com',
       subject: `Portfolio Contact from ${username}`,
       text: `Message: ${message}\n\nSender: ${username}\nEmail: ${email}`,
     };
 
     await transporter.sendMail(mailOptions);
-
     res.status(200).json({ msg: 'Message sent successfully!' });
   } catch (error) {
     console.error('Error sending email:', error);
@@ -40,6 +44,7 @@ app.post('/api/contact', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
 
 
 
