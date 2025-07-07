@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
 
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -19,7 +18,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:5000/api/contact', {
+      const res = await fetch('https://mern-portfolio-btxp.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,3 +73,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
